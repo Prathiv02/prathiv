@@ -97,6 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 decoration: inputDecoration,
                               ),
                               const SizedBox(height: 35),
+
                               Consumer<LoginProvider>(
                                 builder: (BuildContext context, loginProvider,
                                     Widget? child) {
