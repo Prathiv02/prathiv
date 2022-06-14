@@ -107,7 +107,7 @@ class LoginProvider with ChangeNotifier {
           msg:
               "Location permissions are permanently denied, we cannot request permissions.");
     }
-
+    ProgressUtils.showDialogProgress(context);
     Position position = await Geolocator.getCurrentPosition();
     String? address = await reverseGeocodingForGettingAddress(
         longitude: position.longitude, latitude: position.latitude);
@@ -124,6 +124,7 @@ class LoginProvider with ChangeNotifier {
       "uuid": uuid
     });
     sp.putBool(SpUtil.gotLoginData, true);
+    Navigator.of(context).pop();
   }
 
   Future reverseGeocodingForGettingAddress(
