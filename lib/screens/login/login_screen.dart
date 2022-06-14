@@ -86,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 controller: phoneNumberController,
                                 decoration: inputDecoration,
                               ),
-                              const SizedBox(height: 30),
+                              const SizedBox(height: 25),
                               const Text("OTP",
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 20)),
@@ -96,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 controller: otpController,
                                 decoration: inputDecoration,
                               ),
-                              const SizedBox(height: 50),
+                              const SizedBox(height: 35),
                               Consumer<LoginProvider>(
                                 builder: (BuildContext context, loginProvider,
                                     Widget? child) {
