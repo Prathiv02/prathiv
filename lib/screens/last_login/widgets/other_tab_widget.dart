@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../../../database/api_service.dart';
+import '../../../database/sp_util.dart';
+import '../../../main.dart';
 import '../../../model/last_login_data_model.dart';
 import 'last_login_item_widget.dart';
 
@@ -13,6 +15,7 @@ class OtherTabWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return StreamBuilder(
       stream: ApiService.loginDetails
+          .where("userId", isEqualTo: sp.getString(SpUtil.userId))
           .orderBy("orderBy", descending: true)
           .snapshots(),
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {

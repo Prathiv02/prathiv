@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:prathivexample/database/api_service.dart';
+import 'package:prathivexample/database/sp_util.dart';
+import 'package:prathivexample/main.dart';
 import 'package:prathivexample/model/last_login_data_model.dart';
 import 'package:prathivexample/screens/last_login/widgets/last_login_item_widget.dart';
 
@@ -14,6 +16,7 @@ class TodayTabWidget extends StatelessWidget {
       stream: ApiService.loginDetails
           .where("loginDate",
               isEqualTo: DateFormat("dd/MM/yyyy").format(DateTime.now()))
+          .where("userId", isEqualTo: sp.getString(SpUtil.userId))
           .orderBy("orderBy", descending: true)
           .snapshots(),
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
