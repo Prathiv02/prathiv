@@ -26,6 +26,13 @@ class _LastLoginScreenState extends State<LastLoginScreen>
     controller = TabController(length: 3, vsync: this);
   }
 
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final appBar = AppBar();
